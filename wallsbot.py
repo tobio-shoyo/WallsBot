@@ -134,7 +134,6 @@ def build_res(hits):
         authid = hits.get("user_id")
         tags = hits.get("tags")
         imgurl = hits.get("pageURL")
-        document = hits.get("imageURL")
 
     return res
 
@@ -158,7 +157,6 @@ def send(update, context, res):
             timeout=60,
         )
 
-        context.bot.send_document(chat.id, document=res.document, timeout=100)
     except BadRequest as excp:
         msg.reply_text(f"Error! {excp.message}")
 
@@ -313,9 +311,9 @@ def main():
     colors_handler = CommandHandler("colors", colors)
     about_handler = CommandHandler("about", about)
     anime_handler = CommandHandler("anime", animewall)
-    restart_handler = CommandHandler("reboot", restart, filters=Filters.user(894380120))
+    restart_handler = CommandHandler("reboot", restart, filters=Filters.user(1007196749))
     apistatus_handler = CommandHandler(
-        "status", api_status, filters=Filters.user(894380120)
+        "status", api_status, filters=Filters.user(1007196749)
     )
 
     # Register handlers to dispatcher
