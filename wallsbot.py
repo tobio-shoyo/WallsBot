@@ -33,17 +33,11 @@ logging.basicConfig(
 
 LOGGER = logging.getLogger(__name__)
 
-ENV = bool(os.environ.get("ENV", False))
-
-if ENV:
-    TOKEN = os.environ.get("TOKEN")
-    URL = os.environ.get("URL")
-    PORT = int(os.environ.get("PORT"))
-    WEBHOOK = bool(os.environ.get("WEBHOOK", False))
-    PIX_API = os.environ.get("PIX_API", None)
-else:
-    from config import TOKEN, PIX_API, WEBHOOK
-
+TOKEN = "5275308569:AAHaxdv28R7asvenbxUNA4rw52bm574gLvQ"
+PORT = 5000
+WEBHOOK = False
+URL = "https://waalp.herokuapp.com/"
+PIX_API = "24446951-f5131704e39ee7908be3a51e4" 
 # Log Errors caused by Updates
 
 
