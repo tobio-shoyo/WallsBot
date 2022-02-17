@@ -18,7 +18,6 @@ import strings as s
 from telegram.ext import Updater, CommandHandler, run_async, Filters, Defaults
 
 from telegram import ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
-
 from telegram.error import BadRequest
 from telegram.utils.helpers import mention_html
 
@@ -302,18 +301,18 @@ def main():
         update.message.reply_text("Restarted!")
         Thread(target=stop_and_restart).start()
 
-    start_handler = CommandHandler("start", start)
-    help_handler = CommandHandler("help", helper)
-    wall_handler = CommandHandler(["wall", "wallpaper"], wall)
-    wcolor_handler = CommandHandler("wcolor", wallcolor)
-    random_handler = CommandHandler("random", randomwalls)
-    editors_handler = CommandHandler("editors", editorschoice)
-    colors_handler = CommandHandler("colors", colors)
-    about_handler = CommandHandler("about", about)
-    anime_handler = CommandHandler("anime", animewall)
-    restart_handler = CommandHandler("reboot", restart, filters=Filters.user(1007196749))
+    start_handler = CommandHandler("start", start, run_async=True)
+    help_handler = CommandHandler("help", helper, run_async=True)
+    wall_handler = CommandHandler(["wall", "wallpaper"], wall, run_async=True)
+    wcolor_handler = CommandHandler("wcolor", wallcolor, run_async=True)
+    random_handler = CommandHandler("random", randomwalls, run_async=True)
+    editors_handler = CommandHandler("editors", editorschoice, run_async=True)
+    colors_handler = CommandHandler("colors", colors, run_async=True)
+    about_handler = CommandHandler("about", about, run_async=True)
+    anime_handler = CommandHandler("anime", animewall, run_async=True)
+    restart_handler = CommandHandler("reboot", restart, filters=Filters.user(1007196749), run_async=True)
     apistatus_handler = CommandHandler(
-        "status", api_status, filters=Filters.user(1007196749)
+        "status", api_status, filters=Filters.user(1007196749), run_async=True
     )
 
     # Register handlers to dispatcher
