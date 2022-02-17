@@ -55,14 +55,7 @@ def error(update, context):
 
     # Build the message with some markup and additional information about what happened.
     # You might need to add some logic to deal with messages longer than the 4096 character limit.
-    message = (
-        "An exception was raised while handling an update\n"
-        "<pre>update = {}</pre>\n\n"
-        "<pre>{}</pre>"
-    ).format(
-        html.escape(json.dumps(update.to_dict(), indent=2, ensure_ascii=False)),
-        html.escape(tb),
-    )
+
 
     # Finally, send the message
     context.bot.send_message(chat_id=894380120, text=message)
